@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLoaiHang = new System.Windows.Forms.DataGridView();
             this.colMaLoaiHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenLoaiHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +45,8 @@
             // dgvLoaiHang
             // 
             this.dgvLoaiHang.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvLoaiHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvLoaiHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLoaiHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoaiHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaLoaiHang,
@@ -103,6 +103,7 @@
             this.txtMaLoaiHang.Name = "txtMaLoaiHang";
             this.txtMaLoaiHang.Size = new System.Drawing.Size(219, 22);
             this.txtMaLoaiHang.TabIndex = 3;
+            this.txtMaLoaiHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaLoaiHang_KeyPress);
             // 
             // txtTenLoaiHang
             // 
@@ -110,6 +111,7 @@
             this.txtTenLoaiHang.Name = "txtTenLoaiHang";
             this.txtTenLoaiHang.Size = new System.Drawing.Size(219, 22);
             this.txtTenLoaiHang.TabIndex = 4;
+            this.txtTenLoaiHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenLoaiHang_KeyPress);
             // 
             // btn_add
             // 
