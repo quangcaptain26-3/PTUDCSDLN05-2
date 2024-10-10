@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PTUDCSDLN05_2
@@ -18,15 +11,13 @@ namespace PTUDCSDLN05_2
             loadDgvLoaiHang();
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void loadDgvLoaiHang()
         {
-  
+
             dgvLoaiHang.DataSource = Database.Query("SELECT * from LoaiHang");
         }
 
@@ -34,6 +25,26 @@ namespace PTUDCSDLN05_2
         {
             Database.Execute("INSERT LoaiHang VALUES ('" + txtMaLoaiHang.Text + "', N'" + txtTenLoaiHang.Text + "')");
             loadDgvLoaiHang();
+        }
+
+        private void dgvLoaiHang_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMaLoaiHang.Text = dgvLoaiHang.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtTenLoaiHang.Text = dgvLoaiHang.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            Database.Execute("DELETE LoaiHang WHERE MaLoaiHang = '" + dgvLoaiHang.CurrentRow.Cells[0].Value.ToString() + "'");
+            loadDgvLoaiHang();
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+           Database.Execute("UPDATE LoaiHang SET MaLoaiHang = '" + txtMaLoaiHang.Text + "', TenLoaiHang = N'" + txtTenLoaiHang.Text 
+               + "' WHERE MaLoaiHang = '" + dgvLoaiHang.CurrentRow.Cells[0].Value.ToString() + "'");
+            loadDgvLoaiHang();
+          
         }
     }
 }

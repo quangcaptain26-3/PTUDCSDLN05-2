@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PTUDCSDLN05_2
 {
     internal class Database
     {
-        private static string connectionString = 
-            @"Data Source=PHAMMINHQUANG;Initial Catalog=ptudcsdln051;Integrated Security=True;TrustServerCertificate=True";
+        private static string connectionString =
+    @"Data Source=PHAMMINHQUANG;Initial Catalog=ptudcsdln051;Integrated Security=True;TrustServerCertificate=True";
 
         private static SqlConnection connection;
 
@@ -28,7 +24,7 @@ namespace PTUDCSDLN05_2
 
         public static void Execute(string sql)
         {
-            connection = new SqlConnection (connectionString);
+            connection = new SqlConnection(connectionString);
             connection.Open();
             SqlCommand command = new SqlCommand(sql, connection);
             command.ExecuteNonQuery();
